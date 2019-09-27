@@ -1,0 +1,99 @@
+/* Please do not use this import in production. You could download this font from here https://fontstorage.com/font/pt-sans-narrow */
+@import "http://fonts.fontstorage.com/import/ptsansnarrow.css";
+/*
+	PT Sans Narrow, 400, 700
+*/
+.container {
+  max-width: 1120px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+}
+
+.box-main {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  /* transform-style: preserve-3d; */
+  /* transform: rotate(45deg); */
+  background: rgb(68, 68, 66);
+  /* transition: 1.9s linear; */
+  /* z-index: 1; */
+}
+
+.box-anim-left {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  transform: rotate(0deg);
+  background: rgb(243, 189, 13);
+  transition: 1.9s linear;
+  z-index: 1;
+}
+
+.box-anim-left:hover {
+  transform: rotate(0deg) rotateX(180deg) translateY(-100px) translateX(-100px);
+}
+.box-anim-left::before {
+  /* z-index: -1; */
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  content: "1weds";
+  /* display: block; */
+  width: 200px;
+  height: 200px;
+  background: red;
+  transform: rotateX(0deg);
+
+  /* border: 100px solid transparent;
+  border-bottom-color: rgb(236, 41, 41); */
+}
+
+/* .box:after {
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  content: '2';
+  display: block;
+  width: 0px;
+  height: 0px;
+  border: 100px solid transparent;
+  border-top-color: rgb(92, 40, 40);
+} */
+
+.box-circl {
+  margin: 50px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+
+  border-top: 5px dotted #000;
+  border-right: 8px dotted #000;
+  border-bottom: 5px dotted #000;
+  border-left: 3px transparent;
+
+  transition: 1.9s;
+  animation-name: circl;
+  animation-duration: 2.9s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes circl {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    /* transform: translateX(-50px) translateX(-50px); */
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

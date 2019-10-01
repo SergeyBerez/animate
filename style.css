@@ -83,13 +83,13 @@ body {
   70% {
     transform: translateX(-300px) translateY(-200px);
   }
-
+  85% {
+    transform: translateX(0px) translateY(-200px);
+  }
   95% {
     transform: translateX(0px) translateY(-200px);
   }
-  97% {
-    transform: translateX(0px) translateY(-200px);
-  }
+
   100% {
     transform: rotate(0deg) translateX(0px) translateY(0px);
   }
@@ -153,9 +153,7 @@ body {
   95% {
     transform: translateX(0px) translateY(-200px);
   }
-  97% {
-    transform: translateX(0px) translateY(-200px);
-  }
+
   100% {
     transform: rotate(0deg) translateX(0px) translateY(0px);
   }

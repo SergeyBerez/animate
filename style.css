@@ -90,7 +90,7 @@ body {
   }
 
   100% {
-    transform: rotateZ(-180deg);
+    transform: rotateZ(-360deg);
   }
 }
 /* левый див  он в цернте его не отображаем ему тоже ставим transform-style: preserve-3d; 
@@ -142,7 +142,7 @@ body {
     transform: rotateZ(0deg);
   }
   100% {
-    transform: rotateZ(180deg);
+    transform: rotateZ(360deg);
   }
 }
 

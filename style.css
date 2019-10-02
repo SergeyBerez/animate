@@ -19,154 +19,146 @@ body {
   justify-content: center;
   align-items: center;
 }
-
+/* родительский див от прозрачный анимированный вращется вокру своей оси ему главное свойство  transform-style: preserve-3d; */
 .box-main {
-  position: relative;
-
   width: 200px;
   height: 200px;
+  animation-name: round_iteself;
   transform-style: preserve-3d;
-  transform: rotateY(180deg);
-  background: rgb(68, 68, 66);
-  font-size: 20px;
-  text-align: center;
-  box-sizing: border-box;
-  border-radius: 20px;
+  animation-timing-function: linear;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+}
+@keyframes round_iteself {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
 }
 
+/*  правый див  он в цернте его не отображаем ему тоже ставим transform-style: preserve-3d; что бы два псевдодива имели свойство  transform: translateZ(50px); */
 .box-anim-right {
-  box-sizing: border-box;
-  position: relative;
-  left: 0px;
-  top: 0px;
-  transform-style: preserve-3d;
+  position: absolute;
   width: 200px;
   height: 200px;
-  background: rgb(218, 164, 121);
 
+  transform-style: preserve-3d;
   animation-name: round-right;
   animation-timing-function: linear;
-  animation-duration: 7s;
+  animation-duration: 14s;
   animation-iteration-count: infinite;
   border-radius: 20px;
 }
 
-.box-anim-right::before {
-  box-shadow: 0 0 20px black;
+/* псевдо див и фон главый  с текстом  главное свойство transform: translateZ(50px)  */
+.box-anim-right:after {
+  position: absolute;
   line-height: 200px;
-  box-sizing: border-box;
-  display: block;
   top: 0px;
   left: 0px;
   content: 'Hello';
   width: 200px;
   height: 200px;
-  background: rgb(194, 148, 148);
-  transform: translateZ(20px);
+  line-height: 200px;
+  text-align: center;
+  background: rgb(6, 6, 238);
+  transform: translateZ(50px);
   border-radius: inherit;
 }
+
+/* псевдо див и фон для него что бы главный див с текстом не просвечивался главное свойство transform: translateZ(50px) */
+
+.box-anim-right::before {
+  position: absolute;
+  box-sizing: border-box;
+  display: block;
+  top: 0px;
+  left: 0px;
+  content: '';
+  width: 200px;
+  height: 200px;
+  background: rgb(47, 47, 53);
+  transform: translateZ(50px);
+  border-radius: inherit;
+}
+/* крутим  правый див против часовой стрелки  */
 @keyframes round-right {
   0% {
-    transform: rotate(0deg) translateX(0px) translateY(0px);
-  }
-  40% {
-    transform: translateX(-300px) rotate(-45deg);
-  }
-  50% {
-    transform: translateX(-300px) translateY(-200px) rotate(0deg)
-      rotateY(180deg);
-  }
-  60% {
-    transform: translateX(-300px) translateY(-200px) rotateY(0deg);
-  }
-
-  70% {
-    transform: translateX(-300px) translateY(-200px);
-  }
-  85% {
-    transform: translateX(0px) translateY(-200px);
-  }
-  95% {
-    transform: translateX(0px) translateY(-200px);
+    transform: rotateZ(0deg);
   }
 
   100% {
-    transform: rotate(0deg) translateX(0px) translateY(0px);
+    transform: rotateZ(-180deg);
   }
 }
-
+/* левый див  он в цернте его не отображаем ему тоже ставим transform-style: preserve-3d; 
+ что бы два псевдодива имели свойство  transform: translateZ(50px); */
 .box-anim-left {
   box-sizing: border-box;
   position: relative;
-  top: -200px;
-  transform-style: preserve-3d;
   width: 200px;
   height: 200px;
-  background: rgb(194, 148, 148);
-
+  transform-style: preserve-3d;
   animation-name: round-left;
   animation-duration: 7s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   border-radius: 20px;
 }
-
-.box-anim-left::before {
-  box-shadow: 0 0 20px black;
-
+/* псевдо див и фон главый  с текстом 
+---- добвляем псевдо див  его разворачиваем вокруг своей оси на 180 град что бы он встал напротв псевдо правого дива 
+важный стиль для него transform: rotateY(180deg) translateZ(50px); */
+.box-anim-left::after {
+  position: absolute;
   line-height: 200px;
-  box-sizing: border-box;
-  display: block;
   top: 0px;
   left: 0px;
   content: 'Good Bye';
   width: 200px;
   height: 200px;
-  background: rgb(134, 129, 206);
-  transform: translateZ(20px);
+  line-height: 200px;
+  text-align: center;
+  background: rgb(235, 33, 33);
+  transform: rotateY(180deg) translateZ(50px);
+  border-radius: inherit;
+}
+
+/* псевдо див и фон для него что бы главный див с текстом не просвечивался  */
+.box-anim-left::before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  content: '';
+  width: 200px;
+  height: 200px;
+  background: rgb(47, 47, 53);
+  transform: rotateY(180deg) translateZ(50px);
   border-radius: inherit;
 }
 @keyframes round-left {
   0% {
-    transform: rotate(0deg) translateX(0px) translateY(0px);
+    transform: rotateZ(0deg);
   }
-
-  40% {
-    transform: translateX(300px) rotate(45deg);
-  }
-
-  50% {
-    transform: translateX(300px) translateY(-200px) rotate(0deg);
-  }
-  60% {
-    transform: translateX(300px) translateY(-200px) rotateY(180deg);
-  }
-  70% {
-    transform: translateX(300px) translateY(-200px) rotateY(180deg);
-  }
-  75% {
-    transform: translateX(300px) translateY(-200px);
-  }
-  85% {
-    transform: translateX(0px) translateY(-200px);
-  }
-  95% {
-    transform: translateX(0px) translateY(-200px);
-  }
-
   100% {
-    transform: rotate(0deg) translateX(0px) translateY(0px);
+    transform: rotateZ(180deg);
   }
 }
 
 .button {
   position: relative;
   width: 50px;
-  margin-top: 20px;
+  margin-top: 50px;
   border-radius: 5px;
   outline: none;
   box-shadow: 3px 6px 5px 2px black;
 }
 .paused {
   animation-play-state: paused;
+}
+.blur {
+  background: rgba(128, 128, 128, 0.411);
+  filter: blur(0.7px);
+  color: red;
 }

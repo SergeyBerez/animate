@@ -1,6 +1,7 @@
 let but = document.querySelector('button');
 let boxLeft = document.querySelector('.box-anim-left');
 let boxRight = document.querySelector('.box-anim-right');
+let boxZ = document.querySelector('.box-anim-z');
 let cont = document.querySelector('.container');
 let h3 = document.createElement('h3');
 h3.innerText =
@@ -20,6 +21,7 @@ but.addEventListener('click', function(e) {
   }
   boxLeft.classList.toggle('paused');
   boxRight.classList.toggle('paused');
+  boxZ.classList.toggle('paused');
   cont.classList.toggle('blur');
   cont.appendChild(h3);
 });

@@ -47,7 +47,7 @@ body {
   transform-style: preserve-3d;
   animation-name: round-right;
   animation-timing-function: linear;
-  animation-duration: 14s;
+  animation-duration: 7s;
   animation-iteration-count: infinite;
   border-radius: 20px;
 }
